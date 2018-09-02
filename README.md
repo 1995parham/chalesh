@@ -2,7 +2,7 @@
 [![Travis branch](https://img.shields.io/travis/1995parham/chalesh/master.svg?style=flat-square)](https://travis-ci.org/1995parham/chalesh)
 
 ## Introduction
-[ArvanCloud](https://www.arvancloud.com/en/) Recruitment Exam (Sep 2018).
+[ArvanCloud](https://www.arvancloud.com/en/) Recruitment Challenge (Sep 2018).
 
 - Goal: Add a unique id to `error_log` for per request context
 - The unique id must be an inner defined Nginx variable
