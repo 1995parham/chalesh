@@ -3670,6 +3670,12 @@ ngx_http_log_error_handler(ngx_http_request_t *r, ngx_http_request_t *sr,
         buf = p;
     }
 
+    if (r->headers_in.arvn_unique_id) {
+        p = ngx_snprintf(buf, len, ", arvn_unique_id: \"%V\"", &r->headers_in.arvn_unique_id->value);
+        len -= p - buf;
+        buf = p;
+    }
+
     u = sr->upstream;
 
     if (u && u->peer.name) {
