@@ -198,6 +198,10 @@ ngx_http_header_t  ngx_http_headers_in[] = {
     { ngx_string("Cookie"), offsetof(ngx_http_headers_in_t, cookies),
                  ngx_http_process_multi_header_lines },
 
+    { ngx_string("Arvan-Unique-ID"),
+                 offsetof(ngx_http_headers_in_t, arvn_unique_id),
+                 ngx_http_process_header_line },
+
     { ngx_null_string, 0, NULL }
 };
 
