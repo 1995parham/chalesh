@@ -1,4 +1,5 @@
 # Chalesh [Challenge]
+[![Travis branch](https://img.shields.io/travis/1995parham/chalesh/master.svg?style=flat-square)](https://travis-ci.org/1995parham/chalesh)
 
 ## Introduction
 [ArvanCloud](https://www.arvancloud.com/en/) Recruitment Exam (Sep 2018).
