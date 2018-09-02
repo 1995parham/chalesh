@@ -42,3 +42,14 @@ Following code snippet adds `Arvan-Unique-ID` to `error_log` in `ngx_http_log_er
         buf = p;
     }
 ```
+
+Samples from `logs/error.log` and `logs/access.log`  present below:
+
+```
+2018/09/02 20:28:03 [error] 95138#0: *1 "/usr/local/nginx/html/index.html" is not found (2: No such file or directory), client: 192.168.73.2, server: localhost, request: "GET / HTTP/1.1", arvn_unique_id: "10", host: "192.168.73.4:8080"
+```
+
+```
+-: 192.168.73.2 - - [02/Sep/2018:20:16:12 +0430] "GET / HTTP/1.1" 404 169 "-" "PostmanRuntime/7.2.0" "-"
+10: 192.168.73.2 - - [02/Sep/2018:20:16:25 +0430] "GET / HTTP/1.1" 404 169 "-" "PostmanRuntime/7.2.0" "-"
+```
