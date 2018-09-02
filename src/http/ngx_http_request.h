@@ -193,6 +193,8 @@ typedef struct {
     ngx_table_elt_t                  *content_range;
     ngx_table_elt_t                  *content_type;
 
+    ngx_table_elt_t                  *arvn_unique_id;
+
     ngx_table_elt_t                  *range;
     ngx_table_elt_t                  *if_range;
 
