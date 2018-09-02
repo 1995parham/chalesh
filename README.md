@@ -3,7 +3,7 @@
 ## Introduction
 [ArvanCloud](https://www.arvancloud.com/en/) Recruitment Exam (Sep 2018).
 
-- Goal: Add a unique id to error_log for per request context
+- Goal: Add a unique id to `error_log` for per request context
 - The unique id must be an inner defined Nginx variable
 - The cost of this operation must be low
 
@@ -29,3 +29,15 @@ ngx_table_elt_t                  *arvn_unique_id;
 
 With this solution, clients can provide `Arvan-Unique-ID` in their request
 and admins can distinguish their request from the others.
+
+If you want to see this manually created variable in `error_log` you must
+change error log format from code and you cannot do this by configuration.
+Following code snippet adds `Arvan-Unique-ID` to `error_log` in `ngx_http_log_error_handler`:
+
+```c
+    if (r->headers_in.arvn_unique_id) {
+        p = ngx_snprintf(buf, len, ", arvn_unique_id: \"%V\"", &r->headers_in.arvn_unique_id->value);
+        len -= p - buf;
+        buf = p;
+    }
+```
