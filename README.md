@@ -60,3 +60,11 @@ request. In order to doing this we must get `request_id` from request variables 
 `ngx_http_log_error_handler` but when `ngx_http_log_error_handler` is called there is no `request_id`
 in the variables beacuse we need to index them before use. So I decided to print request object memory
 address as unique id :smile:.
+
+```c
+    else {
+        p = ngx_snprintf(buf, len, ", arvn_unique_id: \"%p\"", &r);
+        len -= p - buf;
+        buf = p;
+    }
+```
