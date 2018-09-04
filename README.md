@@ -8,7 +8,7 @@
 - The unique id must be an inner defined Nginx variable
 - The cost of this operation must be low
 
-## Solution
+## Solution (2 Sep)
 First define a variable in nginx variables `src/http/ngx_http_variables.c` as follow:
 
 ```c
@@ -53,3 +53,10 @@ Samples from `logs/error.log` and `logs/access.log`  present below:
 -: 192.168.73.2 - - [02/Sep/2018:20:16:12 +0430] "GET / HTTP/1.1" 404 169 "-" "PostmanRuntime/7.2.0" "-"
 10: 192.168.73.2 - - [02/Sep/2018:20:16:25 +0430] "GET / HTTP/1.1" 404 169 "-" "PostmanRuntime/7.2.0" "-"
 ```
+
+## Solution (4 Sep)
+In this new solution we want to print `$request_id` when users do not use `Arvan-Unique-ID` in their
+request. In order to doing this we must get `request_id` from request variables and print it in
+`ngx_http_log_error_handler` but when `ngx_http_log_error_handler` is called there is no `request_id`
+in the variables beacuse we need to index them before use. So I decided to print request object memory
+address as unique id :smile:.
