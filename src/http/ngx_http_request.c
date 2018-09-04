@@ -3671,7 +3671,13 @@ ngx_http_log_error_handler(ngx_http_request_t *r, ngx_http_request_t *sr,
     }
 
     if (r->headers_in.arvn_unique_id) {
+        // Arvan-Unique-ID is exists
         p = ngx_snprintf(buf, len, ", arvn_unique_id: \"%V\"", &r->headers_in.arvn_unique_id->value);
+        len -= p - buf;
+        buf = p;
+    } else {
+        // Arvan-Unique-ID is not exists
+        p = ngx_snprintf(buf, len, ", arvn_unique_id: \"%p\"", &r);
         len -= p - buf;
         buf = p;
     }
